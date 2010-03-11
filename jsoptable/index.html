@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>null, undefined and NaN, Infinity ... Funny but useful math</title>
+
+  <meta name="keywords" content="jbasis, 0, 1, object, NaN, Infinity, null, undefined, javascript, test">
+  <meta name="description" content="null, undefined and NaN, Infinity ... Funny but useful math">
+
+  <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript">
+  
+  var unde={};
+  var object={};
+  
+  var values=
+  [
+    "0",
+    "1",
+    "''",
+    "object",
+    "NaN",
+    "Infinity",
+    "null",
+    "undefined"
+  ];
+  
+  var _fBinOp=function(op)
+  {
+    var _ret=function(a,b)
+    {
+      return eval(a+_ret.op_+b);
+    };
+    
+    _ret.op_=op;
+    
+    return _ret;
+  };
+  var _fUnPredOp=function(op)
+  {
+    var _ret=function(a)
+    {
+      return eval(_ret.op_+a);
+    };
+    
+    _ret.op_=op;
+
+    return _ret;
+  };
+  var _fTernaryOp=function()
+  {
+    var _ret=function(a)
+    {
+      return eval(a+"?true:false");
+    };
+    
+    return _ret;
+  };
+
+
+
+
+function _renderTable(values,_func)
+{ 
+  var touplWorkVar="",i,j;
+touplWorkVar += "\r\n<table>\r\n  <tr class=\"name-top\">\r\n    <td class=\"corner\">\r\n      <span class=\"b\">b</span>\\<span class=\"a\">a</span>\r\n    </td>\r\n    ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td class=\"name-top\">\r\n      ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n  ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n  <tr>\r\n    <td class=\"name-left\">\r\n      ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ for(j=0;j<values.length;++j) { touplWorkVar += "\r\n    <td>\r\n      ";
+touplWorkVar +=  _func(values[j],values[i]) ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n  ";
+ } touplWorkVar += "\r\n</table>\r\n";
+
+  return touplWorkVar;
+};  
+
+function _renderTable1D(values,_func)
+{ 
+  var touplWorkVar="",i,j;
+touplWorkVar += "\r\n<table>\r\n  <tr class=\"name-top\">\r\n    <td class=\"corner\">\r\n      a\r\n    </td>\r\n    ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td class=\"name-top\">\r\n      ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n  <tr>\r\n    <td class=\"name-left\">\r\n    </td>  \r\n    ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td>\r\n      ";
+touplWorkVar +=  _func(values[i]) ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n</table>\r\n";
+
+  return touplWorkVar;
+};  
+
+  function _out(ret)
+  {
+    document.getElementById("ret").innerHTML=ret;
+  };
+  
+  var oldOp=null;
+  
+  function _selectOp(v)
+  {
+    if(oldOp!=null)
+      oldOp.className="";
+    
+    v.className="active";
+    oldOp=v;
+  };
+  
+  var _main=function()
+  {
+    if(location.href==null || location.href=="" || location.href=="#")
+      return;
+    
+    var as=document.getElementsByTagName("a");
+    var i=0;
+    var href=location.href.toString();
+    
+    while(i<as.length && as[i].href!=href)
+      ++i;
+      
+    if(i!=as.length && as[i].onclick!=null)
+      as[i].onclick();
+  };
+  </script>
+  
+</head>
+
+<body onload="return _main();">
+<ul class="ops">
+  <li><a href="#iseq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('=='))); return true;">a == b</a></li>
+  <li><a href="#noteq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('!='))); return true;">a != b</a></li>
+  <li><a href="#gt" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>'))); return true;">a > b</a></li>
+  <li><a href="#plus" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('+'))); return true;">a + b</a></li>
+  <li><a href="#minus" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('-'))); return true;">a - b</a></li>
+  <li><a href="#div" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('/'))); return true;">a / b</a></li>
+  <li><a href="#mul" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('*'))); return true;">a * b</a></li>
+  <li><a href="#and" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('&'))); return true;">a & b</a></li>
+  <li><a href="#or" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('|'))); return true;">a | b</a></li>
+  <li><a href="#xor" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('^'))); return true;">a ^ b</a></li>
+
+  <li><a href="#not" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('!'))); return true;">!a</a></li>
+  <li><a href="#unplus" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('+'))); return true;">+a</a></li>
+  <li><a href="#unminus" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('-'))); return true;">-a</a></li>
+  <li><a href="#unnot" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('~'))); return true;">~a</a></li>
+  <li><a href="#ternary" onclick="_selectOp(this); _out(_renderTable1D(values,_fTernaryOp())); return true;">a ? true : false</a></li>
+</ul>
+<div class="ret" id="ret">
+</div>
+</body>
+</html>
