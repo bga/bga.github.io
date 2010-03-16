@@ -61,27 +61,33 @@
   };
 
 
+/* < I:\WebSite\bga.github.com\jsoptable\table.toupl.html > */
 
+/* <toupl> */
 
 function _renderTable(values,_func)
 { 
   var touplWorkVar="",i,j;
-touplWorkVar += "\r\n<table>\r\n  <tr class=\"name-top\">\r\n    <td class=\"corner\">\r\n      <span class=\"b\">b</span>\\<span class=\"a\">a</span>\r\n    </td>\r\n    ";
- for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td class=\"name-top\">\r\n      ";
+touplWorkVar += " <table onmouseover=\"return _hlTableRowColomn.call(this,event);\"> <col> </col> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <col> </col> ";
+ } touplWorkVar += " <tr class=\"name-top\"> <td class=\"corner\"> <span class=\"b\">b</span>\\<span class=\"a\">a</span> </td> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <td class=\"name-top\"> ";
 touplWorkVar +=  values[i] ;
-touplWorkVar += "\r\n    </td>\r\n    ";
- } touplWorkVar += "\r\n  </tr>\r\n  ";
- for(i=0;i<values.length;++i) { touplWorkVar += "\r\n  <tr>\r\n    <td class=\"name-left\">\r\n      ";
+touplWorkVar += " </td> ";
+ } touplWorkVar += " </tr> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <tr> <td class=\"name-left\"> ";
 touplWorkVar +=  values[i] ;
-touplWorkVar += "\r\n    </td>\r\n    ";
- for(j=0;j<values.length;++j) { touplWorkVar += "\r\n    <td>\r\n      ";
+touplWorkVar += " </td> ";
+ for(j=0;j<values.length;++j) { touplWorkVar += " <td> ";
 touplWorkVar +=  _func(values[j],values[i]) ;
-touplWorkVar += "\r\n    </td>\r\n    ";
- } touplWorkVar += "\r\n  </tr>\r\n  ";
- } touplWorkVar += "\r\n</table>\r\n";
+touplWorkVar += " </td> ";
+ } touplWorkVar += " </tr> ";
+ } touplWorkVar += " </table> ";
 
   return touplWorkVar;
 };  
+/* </toupl> */
+/* </ I:\WebSite\bga.github.com\jsoptable\table.toupl.html > */
 
 function _renderTable1D(values,_func)
 { 
@@ -115,6 +121,36 @@ touplWorkVar += "\r\n    </td>\r\n    ";
     oldOp=v;
   };
   
+  var lastTR,lastCol;
+  var _hlTableRowColomn=function(e)
+  {
+    if(e==null)
+      e=window.event;
+      
+    var v=e.target || e.srcElement;
+
+    while(v !== this && v.nodeName !== 'TD')
+      v=v.parentNode;
+      
+    if(v === this)
+      return;
+    
+    if(lastTR)
+      lastTR.style.backgroundColor="";
+    if(lastCol)
+      lastCol.style.backgroundColor="";
+      
+    lastTR=v.parentNode;
+    
+    var cellIndex=v.cellIndex;
+    
+    while(v !== this && v.nodeName !== 'TABLE')
+      v=v.parentNode;
+      
+    lastCol=v.getElementsByTagName("col")[cellIndex];
+
+    lastCol.style.backgroundColor=lastTR.style.backgroundColor='#ddd';
+  };
   var _main=function()
   {
     if(location.href==null || location.href=="" || location.href=="#")
