@@ -12,7 +12,7 @@
   {
     log: function()
     {
-      var text = Array.prototype.join.call(arguments, '');
+      var text = Array.prototype.join.call(arguments, ' ');
       
       _dom('log').appendChild($d.createElement('div')).appendChild($d.createTextNode(text));
     }
