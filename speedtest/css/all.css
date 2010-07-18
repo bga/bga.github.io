@@ -1,0 +1,88 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+html, body
+{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body
+{
+  font-family: Courier New;
+  font-size: 10pt;
+}
+
+#code
+{
+  position:absolute;
+  left:0px;
+  right:0px;
+  top:0px;
+  bottom: 150px;
+  border-bottom: 1px black solid;
+  overflow: hidden;
+}
+
+#code textarea
+{
+  overflow: auto;
+  width:100%;
+  height:100%;
+  border: none;
+  resize:none;
+}
+*+html #code textarea
+{
+  height:expression(this.parentNode.clientHeight + 'px')
+}
+
+/*
+*+html #code textarea
+{
+  height:expression(alert(this.parentNode.clientHeight + 'px'); this.parentNode.clientHeight + 'px');
+}
+*/
+
+#log
+{
+  position:absolute;
+  left:0px;
+  right:0px;
+  height:150px;
+  bottom: 0px;
+  overflow: auto;
+  padding:2px;
+}
+
+.button
+{
+  cursor: pointer;
+  line-height: 2em;
+  text-align: center;
+  height:2em;
+  text-transform: uppercase;
+  border: 1px black solid;
+}
+
+#run
+{
+  position:absolute;
+  width: 50px;
+  right:80px;
+  bottom: 150px;
+  background: #AAA;
+}
+
+#stop
+{
+  position:absolute;
+  width: 50px;
+  right:20px;
+  bottom: 150px;
+  background: #AAA;
+}
