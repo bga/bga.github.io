@@ -86,3 +86,13 @@ body
   bottom: 150px;
   background: #AAA;
 }
+
+#cpu-warmup-time
+{
+  position:absolute;
+  width: 220px;
+  right:20px;
+  top: 5px;
+  background: #AAA;
+  padding:2px;
+}
