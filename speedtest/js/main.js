@@ -88,6 +88,7 @@
       fns = fnsArg;
       curFnIndex = 0;
       warmUpStartTime = +new Date();
+      warmUpTime = parseFloat(_dom('cpu-warmup-time-value').value);
       n = nArg;
       
       //_iterate();
@@ -97,7 +98,7 @@
   
   $A._onRunClick = function()
   {
-    var code = _dom('code').firstChild.value;
+    var code = _dom('code-value').value;
     
     (new Function('console, _speedTest', code))(console, _speedTest);
   };
