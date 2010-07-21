@@ -96,6 +96,15 @@
     };
   })();  
   
+  $A._onCodeTextareaKeyUp = function(e)
+  {
+    if(!e)
+      e = event;
+      
+    if(e.keyCode == 13 && e.ctrlKey)
+      setTimeout($A._onRunClick, 0);
+  };
+  
   $A._onRunClick = function()
   {
     var code = _dom('code-value').value;
@@ -110,6 +119,11 @@
   
   window.onload = function()
   {
+    if($d.attachEvent)
+      _dom('code-value').attachEvent('onkeyup', $A._onCodeTextareaKeyUp);
+    else
+      _dom('code-value').addEventListener('keyup', $A._onCodeTextareaKeyUp, false);
+    
     xedit.bind(_dom('code').firstChild);
   };
   
