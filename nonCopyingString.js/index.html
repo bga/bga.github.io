@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<!--
+/**
+  @file
+  @author  Fyodorov "bga" Alexander <bga.email@gmail.com>
+ 
+  @section LICENSE
+ 
+  Experimental common javascript RIA library http://github.com/bga/jbasis
+
+  Copyright (c) 2009-2010, Fyodorov "Bga" Alexander <bga.email@gmail.com>
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+      * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+      * Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+      * The name of the developer may not be used to endorse or promote
+        products derived from this software without specific prior
+        written permission.
+
+  THIS SOFTWARE IS PROVIDED BY FYODOROV "BGA" ALEXANDER "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL FYODOROV "BGA" ALEXANDER BE LIABLE FOR ANY DIRECT, INDIRECT,
+  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+-->
+<html>
+<head>
+  <title>nonCopyingString.js</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="keywords" content="jbasis, javascript, framework, demo, test, non, copying, string, ie, internet, explorer, optimize">
+  <meta name="description" content="">
+
+  <!--
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+  -->
+  <!--
+  <script type="text/javascript" src="/p/jbasis/src/config.js"></script>
+  <script type="text/javascript" src="/p/jbasis/src/jbasis.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  -->
+  <style>
+    /*
+    body
+    {
+      font-family:"Courier New";
+      font-size:10pt;
+      line-height:12pt;
+    }
+    */
+  </style>
+</head>
+
+<body>
+
+<h1><a href="index.html">nonCopyingString.js</a></h1>
+<h2>Why we need it?</h2>
+<p>As i have learned before, IE s speed of String#slice and other substring methods depend from length of  substring linearly. In other browser - const time. It means that IE do real copy, char by char, from string to substring, but other browsers just set two pointers as begin and end of substring in address space of string. I have tried to fix/optimize it.</p>
+<h2>Technology</h2>
+<p>Very easy. We just overwrite native String#slice which return our new NCString object with stored owner string and two pointers - begin and end if substring length >= copy threshold else return native substring. Also we do not forget to calculate length property. We use IEs DontEnum bug and store private properties in isPrototypeOf function object like this.isPrototypeOf.begin_. So you can only see isPrototypeOf and length as own properties of string. Technique of Object#valueOf and Object#toString allow us to return real substring on-demand in all javascript expressions(Object#valueOf calls)or brace operator and other operators, which calls Object#toString implicitly. Also all string native functions (like replace, match, ...) convert object to string by call toString. Extension object from String prototypically allow automatically get all current and future functions from String prototype (which automatic calls toString to convert object to string)</p>
+<h2>Addition features</h2>
+<p>We can make readonly functions like NCString#indexOf NCString#lastIndexOf NCString#charAt(two versions - for browsers which support '1'[0] == '1' or not) NCString#charCodeAt really fast and without getting real substring. With NCString#slice NCString#substring NCString#substr too.</p>
+<h2>Discovery</h2>
+<p>Firstly i tried to fully replace native String#slice. But as i discovered, copy threshold ~= 20500 chars. It s very big. It slowdown all algorithms which uses small strings. Because i decided to make separate String#_ncSlice for algorithms which uses really big strings. Also String#_ncSubstring and String#_ncSubstr.</p>
+<h2>ECMAScript5 compatibility</h2>
+<p>All custom String and NCString function fully compatible with ECMAScript5 lastest standard. There are some limitations which we can not fix. Object.prototype.toString.call(''._ncSlice(0)) != '[object String]' as for native string. Also typeof(''._ncSlice(0)) == 'object' instead 'string'. Its ECMAScript limitations.</p>
+<h2>How to apply this script to your algorithm</h2>
+<p>Firstly replace all slice to _ncSlice, substring to _ncSubstring, substr to _ncSubstr. Secondary lookup all typeof(yourExpr) == 'string' and Object.prototype.toString.call(yourExpr) == '[object String]' and add String._isNCString(yourExpr). Thats all</p>
+<h2>Links</h2>
+<p><a href="http://github.com/bga/jbasis/raw/master/src/nonCopyingString.js">lastest nonCopyingString.js</a> <a href="./unitTests/">unitTests</a> <a href="./splitPoint/">split point calculation</a></p>
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js'   type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try
+  { 
+    var pageTracker = _gat._getTracker("UA-8343940-1");
+    pageTracker._trackPageview();
+  }
+  catch(err)
+  {
+  }
+</script>
+</body>
+</html>
