@@ -18,8 +18,10 @@ function _renderTable1D(values,_func)
     <td class="name-left">
     </td>  
     <% for(i=0;i<values.length;++i) { %>
-    <td>
-      <%= _func(values[i]) %>
+    <% var v = _func(values[i]); %>
+    <td class="<%= typeof(v) %>">
+      <% if(typeof(v) == "string") { v = "'" + v + "'" } %>
+      <%= v %>
     </td>
     <% } %>
   </tr>

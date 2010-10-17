@@ -4,13 +4,13 @@
 <head>
   <title>null, undefined and NaN, Infinity ... Funny but useful math</title>
 
-  <meta name="keywords" content="jbasis, 0, 1, object, NaN, Infinity, null, undefined, javascript, test">
+  <meta name="keywords" content="string, number, boolean, -1, 0, 1, NaN, Infinity, true, false, object, null, undefined, javascript, test">
   <meta name="description" content="null, undefined and NaN, Infinity ... Funny but useful math">
 
   <meta content="text/html; charset=windows-1251" http-equiv="content-type">
 
   <link href="style.css" rel="stylesheet" type="text/css">
-  
+
   <script type="text/javascript">
   
   var unde={};
@@ -18,12 +18,16 @@
   
   var values=
   [
+    '-1',
     "0",
     "1",
-    "''",
-    "object",
     "NaN",
     "Infinity",
+    'true',
+    'false',
+    "''",
+    "'@'",
+    "object",
     "null",
     "undefined"
   ];
@@ -78,8 +82,12 @@ touplWorkVar += " </td> ";
  for(i=0;i<values.length;++i) { touplWorkVar += " <tr> <td class=\"name-left\"> ";
 touplWorkVar +=  values[i] ;
 touplWorkVar += " </td> ";
- for(j=0;j<values.length;++j) { touplWorkVar += " <td> ";
-touplWorkVar +=  _func(values[j],values[i]) ;
+ for(j=0;j<values.length;++j) { touplWorkVar += " ";
+ var v = _func(values[j],values[i]); touplWorkVar += " <td class=\"";
+touplWorkVar +=  typeof(v) ;
+touplWorkVar += "\"> ";
+ if(typeof(v) == "string") { v = "'" + v + "'" } touplWorkVar += " ";
+touplWorkVar +=  v ;
 touplWorkVar += " </td> ";
  } touplWorkVar += " </tr> ";
  } touplWorkVar += " </table> ";
@@ -89,6 +97,9 @@ touplWorkVar += " </td> ";
 /* </toupl> */
 /* </ I:\WebSite\bga.github.com\jsoptable\table.toupl.html > */
 
+/* < I:\WebSite\bga.github.com\jsoptable\list.toupl.html > */
+/* <toupl> */
+
 function _renderTable1D(values,_func)
 { 
   var touplWorkVar="",i,j;
@@ -97,13 +108,19 @@ touplWorkVar += "\r\n<table>\r\n  <tr class=\"name-top\">\r\n    <td class=\"cor
 touplWorkVar +=  values[i] ;
 touplWorkVar += "\r\n    </td>\r\n    ";
  } touplWorkVar += "\r\n  </tr>\r\n  <tr>\r\n    <td class=\"name-left\">\r\n    </td>  \r\n    ";
- for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td>\r\n      ";
-touplWorkVar +=  _func(values[i]) ;
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    ";
+ var v = _func(values[i]); touplWorkVar += "\r\n    <td class=\"";
+touplWorkVar +=  typeof(v) ;
+touplWorkVar += "\">\r\n      ";
+ if(typeof(v) == "string") { v = "'" + v + "'" } touplWorkVar += "\r\n      ";
+touplWorkVar +=  v ;
 touplWorkVar += "\r\n    </td>\r\n    ";
  } touplWorkVar += "\r\n  </tr>\r\n</table>\r\n";
 
   return touplWorkVar;
 };  
+/* </toupl> */
+/* </ I:\WebSite\bga.github.com\jsoptable\list.toupl.html > */
 
   function _out(ret)
   {
@@ -149,7 +166,7 @@ touplWorkVar += "\r\n    </td>\r\n    ";
       
     lastCol=v.getElementsByTagName("col")[cellIndex];
 
-    lastCol.style.backgroundColor=lastTR.style.backgroundColor='#ddd';
+    lastTR.style.backgroundColor=lastCol.style.backgroundColor='#ddd';
   };
   var _main=function()
   {
@@ -175,19 +192,29 @@ touplWorkVar += "\r\n    </td>\r\n    ";
   <li><a href="#iseq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('=='))); return true;">a == b</a></li>
   <li><a href="#noteq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('!='))); return true;">a != b</a></li>
   <li><a href="#gt" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>'))); return true;">a > b</a></li>
+  <li><a href="#lt" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('<'))); return true;">a < b</a></li>
+  <li><a href="#gte" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>='))); return true;">a >= b</a></li>
+  <li><a href="#lte" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('<='))); return true;">a <= b</a></li>
+  
   <li><a href="#plus" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('+'))); return true;">a + b</a></li>
   <li><a href="#minus" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('-'))); return true;">a - b</a></li>
   <li><a href="#div" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('/'))); return true;">a / b</a></li>
   <li><a href="#mul" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('*'))); return true;">a * b</a></li>
+  <li><a href="#mod" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('%'))); return true;">a % b</a></li>
+  
   <li><a href="#and" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('&'))); return true;">a & b</a></li>
   <li><a href="#or" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('|'))); return true;">a | b</a></li>
   <li><a href="#xor" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('^'))); return true;">a ^ b</a></li>
+  <li><a href="#shl" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('<<'))); return true;">a << b</a></li>
+  <li><a href="#shr" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>>'))); return true;">a >> b</a></li>
+  <li><a href="#sal" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>>>'))); return true;">a >>> b</a></li>
 
   <li><a href="#not" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('!'))); return true;">!a</a></li>
   <li><a href="#unplus" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('+'))); return true;">+a</a></li>
   <li><a href="#unminus" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('-'))); return true;">-a</a></li>
   <li><a href="#unnot" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('~'))); return true;">~a</a></li>
   <li><a href="#ternary" onclick="_selectOp(this); _out(_renderTable1D(values,_fTernaryOp())); return true;">a ? true : false</a></li>
+  <li><a href="#typeof" onclick="_selectOp(this); _out(_renderTable1D(values,_fUnPredOp('typeof '))); return true;">typeof(a)</a></li>
 </ul>
 <div class="ret" id="ret">
 </div>

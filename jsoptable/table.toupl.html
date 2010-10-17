@@ -27,8 +27,10 @@ function _renderTable(values,_func)
       <%= values[i] %>
     </td>
     <% for(j=0;j<values.length;++j) { %>
-    <td>
-      <%= _func(values[j],values[i]) %>
+    <% var v = _func(values[j],values[i]); %>
+    <td class="<%= typeof(v) %>">
+      <% if(typeof(v) == "string") { v = "'" + v + "'" } %>
+      <%= v %>
     </td>
     <% } %>
   </tr>

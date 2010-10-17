@@ -1,7 +1,7 @@
 body
 {
-  font-family:Fixedsys;
-  font-size:8pt;
+  font-family:Courier New;
+  font-size:10pt;
 }
 
 .ret table
@@ -35,6 +35,18 @@ body
   padding:3px;
   text-align:center;
   color:#808080;
+}
+.ret table tr td.string
+{
+  color: #000080;
+}
+.ret table tr td.number
+{
+  color: #ff0000;
+}
+.ret table tr td.boolean
+{
+  color: #808080;
 }
 .ret span.a
 {
