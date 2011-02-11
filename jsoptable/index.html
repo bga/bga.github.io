@@ -62,7 +62,7 @@
   {
     var _ret=function(a)
     {
-      return eval(a+"?true:false");
+      return eval('(' + a + ") ? true : false");
     };
     
     return _ret;
