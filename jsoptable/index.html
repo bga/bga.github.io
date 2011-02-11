@@ -29,7 +29,7 @@
     "'-1'",
     "'0'",
     "'1'",
-    "({})",
+    "{}",
     "[]",
     "[1]",
     "null",
@@ -40,7 +40,7 @@
   {
     var _ret=function(a,b)
     {
-      return eval(a+_ret.op_+b);
+      return eval(''.concat('(', a, ')', _ret.op_, '(', b, ')'));
     };
     
     _ret.op_=op;
@@ -51,7 +51,7 @@
   {
     var _ret=function(a)
     {
-      return eval(_ret.op_+a);
+      return eval(''.concat(_ret.op_, '(', a, ')'));
     };
     
     _ret.op_=op;
@@ -188,6 +188,12 @@ touplWorkVar += "\r\n    </td>\r\n    ";
       as[i].onclick();
   };
   </script>
+  <style>
+    td
+    {
+      white-space: nowrap;
+    }  
+  </style>
   
 </head>
 
