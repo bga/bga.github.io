@@ -26,8 +26,12 @@
     'true',
     'false',
     "''",
-    "'@'",
-    "object",
+    "'-1'",
+    "'0'",
+    "'1'",
+    "({})",
+    "[]",
+    "[1]",
     "null",
     "undefined"
   ];
@@ -189,6 +193,8 @@ touplWorkVar += "\r\n    </td>\r\n    ";
 
 <body onload="return _main();">
 <ul class="ops">
+  <li><a href="#isseq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('==='))); return true;">a === b</a></li>
+  <li><a href="#notseq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('!=='))); return true;">a !== b</a></li>
   <li><a href="#iseq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('=='))); return true;">a == b</a></li>
   <li><a href="#noteq" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('!='))); return true;">a != b</a></li>
   <li><a href="#gt" onclick="_selectOp(this); _out(_renderTable(values,_fBinOp('>'))); return true;">a > b</a></li>
