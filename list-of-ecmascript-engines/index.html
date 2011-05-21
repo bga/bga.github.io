@@ -1,0 +1,169 @@
+<style>
+  table
+  {
+    border-collapse: collapse;
+  }
+  th, td
+  {
+    border: 1px black solid;
+    padding: 2px;
+  }
+</style>  
+<center><h1>List of ecmascript engines</h1></center>
+<table>
+  <thead>
+    <tr>
+      <th>Name/URL
+      <th>standard
+      <th>supported OSes, processor architectures, virtual platforms
+      <th>jit
+      <th>features
+      <th>products, which uses
+      <th>notes
+  <tbody>
+    <tr>
+      <td><a href="http://code.google.com/p/v8/">V8
+      <td>es5
+      <td>windows/unix, x86/x64/arm/mips/powerpc, <a href="http://javascriptdotnet.codeplex.com/">.NET</a>
+      <td>yes
+      <td>fns inlining(only for bottlenecks), dead code removal, own stacktrace api, debugger statement
+      <td><a href="http://nodejs.org/">Node.js</a>, <a href="www.google.com/chrome">Google Chrome</a>, <a href="http://www.akshell.com/">akshell</a>
+      <td>
+    <tr>
+      <td><a href="http://msdn.microsoft.com/en-us/library/yek4tbz0(v=vs.85).aspx">jscript
+      <td>es3
+      <td>windows/unix, x86/SPARC
+      <td>no
+      <td>integration with ActiveX and VBScript, good <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=2f465be0-94fd-4569-b3c4-dffdf19ccd99">msscript debugger</a>
+      <td><a href="http://en.wikipedia.org/wiki/Windows_Script_Host">Windows Script Host</a>, IE8-
+      <td> 
+    <tr>
+      <td><a href="http://msdn.microsoft.com/en-us/library/ms974588.aspx">jscript.NET
+      <td>es3
+      <td>.NET
+      <td>no
+      <td>integration with ActiveX, .NET CLR, build-in class paradigm, optional typing, import/export, strict compiler(check types, method existing, count of fn args etc)
+      <td>
+      <td>
+    <tr>
+      <td><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">Chakra
+      <td>es5
+      <td> windows 7, x86/x64/arm
+      <td>yes
+      <td>dead code removal
+      <td><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">Internet Exporer 9+</a>
+      <td>
+    <tr>
+      <td><a href="http://www.mozilla.org/js/spidermonkey/">SpiderMonkey
+      <td>es5, part of es6(Proxy)
+      <td>windows/unix x86/x64/arm/mips/powerpc
+      <td>yes
+      <td>own extensions(import/export, yield, let, fn shortcut, object destruct), E4X(direct xml in code and easy manipulations)
+      <td>engine of all products of Mozilla/Netscape, <a href="https://github.com/zpao/spidernode">SpiderNode</a>, Adobe Acrobat, Adobe Flash Professional, Adobe Dreamweaver, <a href="Ultima Online">Ultima Online</a>, CouchDB, MongoDB, ELinks 
+      <td>force of features invention for JS
+    <tr>
+      <td><a href="http://www.mozilla.org/rhino/">Rhino
+      <td>es5
+      <td>java
+      <td>compiled code - yes, eval/new Function - not
+      <td>integration with java platform, E4X, <a href="http://www.mozilla.org/rhino/debugger.html">debugger</a>
+      <td><a href="http://ringojs.org/">ringojs</a>, <a href="http://narwhaljs.org/">narwhaljs</a>, <a href="     http://labs.oracle.com/projects/lively/">Sun's lively kernel</a>
+      <td>
+    <tr>
+      <td><a href="http://lxr.mozilla.org/mozilla/source/js/narcissus/">Narcissus
+      <td>es5, part of es6(module pattern)
+      <td>same as host engine
+      <td>no(js interpretor is written using js)
+      <td>
+      <td>
+      <td>experimental "engine" for TC39 for testing new es6 features
+    <tr>
+      <td><a href="http://trac.webkit.org/wiki/SquirrelFish">Nitro/JavaScriptCore/SquirrelFish/KJS
+      <td>es5
+      <td>windows/unix, x86/x64/arm/mips/powerpc
+      <td>yes
+      <td>
+      <td><a href="http://www.apple.com/safari/">Apple's Safari</a>, WebKit internal engine, <a href="http://qt.nokia.com/products/">QT framework</a>
+      <td>
+    <tr>
+      <td><a href="http://www.opera.com/">Carakan/Futhark/Linear B/Linear A
+      <td>es3
+      <td>windows/unix, x86/arm/mips/powerpc, java
+      <td>yes
+      <td>
+      <td><a href="http://www.opera.com/">Opera web browser</a>
+      <td>
+    <tr>
+      <td><a href="http://www.muchsoft.com/inscript/">inscript
+      <td>es3
+      <td>macos, x86/x64/arm/powerpc/68k
+      <td>no
+      <td>
+      <td><a href="http://www.icab.de/">iCab web browser</a>, early WebKit
+      <td>
+    <tr>
+      <td><a href="http://www.remobjects.com/script.aspx">RemObjects Script
+      <td>es3
+      <td>.NET
+      <td>
+      <td>
+      <td>
+      <td>
+    <tr>
+      <td><a href="https://github.com/fholm/IronJS">IronJS
+      <td>es3
+      <td>.NET
+      <td>no
+      <td>
+      <td>
+      <td>
+    <tr>
+      <td><a href="http://jurassic.codeplex.com/">jurassic
+      <td>es5
+      <td>.NET
+      <td>yes
+      <td>
+      <td>
+      <td>
+    <tr>
+      <td><a href="http://www.mozilla.org/projects/tamarin/">tamarin
+      <td>es4
+      <td>windows/unix, x32
+      <td>yes
+      <td>good dev tools from Adobe
+      <td>Flash platform, Mozilla/Netscape products
+      <td>
+    <tr>
+      <td><a href="http://jint.codeplex.com/">jint
+      <td>most of es3
+      <td>.NET
+      <td>no
+      <td>
+      <td>
+      <td>
+    <tr>
+      <td><a href="http://code.google.com/p/ecmascript-net/">ecmascript-net
+      <td>es3
+      <td>.NET
+      <td>no
+      <td><a href="http://code.google.com/p/ecmascript-net/source/browse/trunk/EcmaScript.NET/Interpreter.cs#3452">tail call optimization</a>
+      <td>
+      <td>port of Rhino to .NET
+    <tr>
+      <td><a href="http://www.digitalmars.com/dscript/">dmdscript
+      <td>es3
+      <td>windows/unix, x32 
+      <td>no
+      <td>goto statement
+      <td>
+      <td>
+    <tr>
+      <td><a href="http://besen.sourceforge.net/">besen
+      <td>es5
+      <td>windows/unix, x32/x64
+      <td>yes
+      <td>Dead code elimination, Type inference
+      <td>author's games
+      <td>
+</table>    
+<div align="right">for contribution - ask <a href="http://twitter.com/bga_">bga_</a></div>    
