@@ -16,7 +16,7 @@
       <th>Name/URL
       <th>standard
       <th>supported OSes, processor architectures, virtual platforms
-      <th>jit
+      <th>jit, processor architectures
       <th>features
       <th>products, which uses
       <th>notes
@@ -24,15 +24,15 @@
     <tr>
       <td><a href="http://code.google.com/p/v8/">V8
       <td>es5
-      <td>windows/unix, x86/x64/arm/mips/powerpc, <a href="http://javascriptdotnet.codeplex.com/">.NET</a>
-      <td>yes
+      <td>windows/unix, <a href="http://javascriptdotnet.codeplex.com/">.NET</a>
+      <td>x86/x64/arm/mips
       <td>fns inlining(only for bottlenecks), dead code removal, own stacktrace api, debugger statement
       <td><a href="http://nodejs.org/">Node.js</a>, <a href="www.google.com/chrome">Google Chrome</a>, <a href="http://www.akshell.com/">akshell</a>
       <td>
     <tr>
       <td><a href="http://msdn.microsoft.com/en-us/library/yek4tbz0(v=vs.85).aspx">jscript
       <td>es3
-      <td>windows/unix, x86/SPARC
+      <td>windows/unix, x86/sparc
       <td>no
       <td>integration with ActiveX and VBScript, good <a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=2f465be0-94fd-4569-b3c4-dffdf19ccd99">msscript debugger</a>
       <td><a href="http://en.wikipedia.org/wiki/Windows_Script_Host">Windows Script Host</a>, IE8-
@@ -48,16 +48,16 @@
     <tr>
       <td><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">Chakra
       <td>es5
-      <td> windows 7, x86/x64/arm
-      <td>yes
+      <td> windows 7, x86/x64/arm 
+      <td>x86/x64/arm
       <td>dead code removal
       <td><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home">Internet Exporer 9+</a>
       <td>
     <tr>
       <td><a href="http://www.mozilla.org/js/spidermonkey/">SpiderMonkey
       <td>es5, part of es6(Proxy)
-      <td>windows/unix x86/x64/arm/mips/powerpc
-      <td>yes
+      <td>windows/unix
+      <td>x86/x64/arm/mips/powerpc/sparc/sh4
       <td>own extensions(import/export, yield, let, fn shortcut, object destruct), E4X(direct xml in code and easy manipulations)
       <td>engine of all products of Mozilla/Netscape, <a href="https://github.com/zpao/spidernode">SpiderNode</a>, Adobe Acrobat, Adobe Flash Professional, Adobe Dreamweaver, <a href="Ultima Online">Ultima Online</a>, CouchDB, MongoDB, ELinks 
       <td>force of features invention for JS
@@ -80,23 +80,23 @@
     <tr>
       <td><a href="http://trac.webkit.org/wiki/SquirrelFish">Nitro/JavaScriptCore/SquirrelFish/KJS
       <td>es5
-      <td>windows/unix, x86/x64/arm/mips/powerpc
-      <td>yes
+      <td>windows/unix
+      <td>x86/x64/arm/mips/sh4
       <td>
       <td><a href="http://www.apple.com/safari/">Apple's Safari</a>, WebKit internal engine, <a href="http://qt.nokia.com/products/">QT framework</a>
       <td>
     <tr>
       <td><a href="http://www.opera.com/">Carakan/Futhark/Linear B/Linear A
       <td>es3
-      <td>windows/unix, x86/arm/mips/powerpc, java
-      <td>yes
+      <td>windows/unix
+      <td>x86(sse2+)/x64/arm
       <td>
       <td><a href="http://www.opera.com/">Opera web browser</a>
       <td>
     <tr>
       <td><a href="http://www.muchsoft.com/inscript/">inscript
       <td>es3
-      <td>macos, x86/x64/arm/powerpc/68k
+      <td>macos
       <td>no
       <td>
       <td><a href="http://www.icab.de/">iCab web browser</a>, early WebKit
@@ -128,8 +128,8 @@
     <tr>
       <td><a href="http://www.mozilla.org/projects/tamarin/">tamarin
       <td>es4
-      <td>windows/unix, x32
-      <td>yes
+      <td>windows/unix
+      <td>x86
       <td>good dev tools from Adobe
       <td>Flash platform, Mozilla/Netscape products
       <td>
@@ -152,7 +152,7 @@
     <tr>
       <td><a href="http://www.digitalmars.com/dscript/">dmdscript
       <td>es3
-      <td>windows/unix, x32 
+      <td>windows/unix 
       <td>no
       <td>goto statement
       <td>
@@ -160,10 +160,18 @@
     <tr>
       <td><a href="http://besen.sourceforge.net/">besen
       <td>es5
-      <td>windows/unix, x32/x64
-      <td>yes
+      <td>windows/unix 
+      <td>x86/x64
       <td>Dead code elimination, Type inference
       <td>author's games
+      <td>
+    <tr>
+      <td><a href="http://vectorlinux.osuosl.org/veclinux-6.0/source/extra/libs/see/3.0.1376/src/">simple script engine
+      <td>es3
+      <td>windows/unix
+      <td>no
+      <td>region based mem allocation
+      <td><a href="http://tkhtml.tcl.tk/hv3.html">hv3 web browser</a>
       <td>
 </table>    
 <div align="right">for contribution - ask <a href="http://twitter.com/bga_">bga_</a></div>    
