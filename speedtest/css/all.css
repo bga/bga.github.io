@@ -19,10 +19,10 @@ body
 
 #code
 {
-  position:absolute;
-  left:0px;
-  right:0px;
-  top:0px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
   bottom: 150px;
   border-bottom: 1px black solid;
   overflow: hidden;
@@ -31,15 +31,23 @@ body
 #code textarea
 {
   overflow: auto;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   border: none;
-  resize:none;
+  resize: none;
 }
+/*
+*html #code textarea
+{
+  height:expression(this.style.height = this.parentNode.clientHeight + 'px')
+}
+*/
+/*
 *+html #code textarea
 {
   height:expression(this.parentNode.clientHeight + 'px')
 }
+*/
 
 /*
 *+html #code textarea
@@ -59,6 +67,13 @@ body
   padding:2px;
 }
 
+#log pre {
+  border: 1px dashed black;
+  margin: 2px;
+}
+
+
+
 .button
 {
   cursor: pointer;
@@ -68,6 +83,16 @@ body
   text-transform: uppercase;
   border: 1px black solid;
 }
+
+#clear-log
+{
+  position:absolute;
+  width: 90px;
+  right: 140px;
+  bottom: 150px;
+  background: #AAA;
+}
+
 
 #run
 {
