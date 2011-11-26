@@ -7,20 +7,27 @@
 
   <meta name="keywords" content="javascript, benchmark, test, speed">
   <meta name="description" content="">
-
   <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!--
   <script type="text/javascript" src="js/xedit.last.js"></script>
+  -->
+  <script type="text/javascript">this.SafeJS = {}</script>
+  <script type="text/javascript" src="js/extra/_addDebugInfo.js"></script>
+  <script type="text/javascript" src="js/extra/_desugarfyJS.js"></script>
+  <script type="text/javascript" src="js/extra/_desugarfyJS.runtime.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 
   <link href="css/all.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<div id="code"><textarea id="code-value"></textarea></div>
+<div id="code"><textarea id="code-value" rows="30"></textarea></div>
 <div id="cpu-warmup-time">CPU WarmUp Time <input id="cpu-warmup-time-value" size="5" value="4000"> ms</div>
-<div id="run" class="button" onclick="return $A._onRunClick();">Run</div>
-<div id="stop" class="button"  onclick="return $A._onStopClick();">Stop</div>
+<a id="clear-log" class="button"  onclick="document.getElementById('log').innerHTML = ''">Clear Log</a>
+<a id="run" class="button" onclick="return $A._onRunClick();">Run</a>
+<a id="stop" class="button"  onclick="return $A._onStopClick();">Stop</a>
 <div id="log"></div>
 </body>
 </html>
