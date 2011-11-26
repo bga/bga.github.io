@@ -82,6 +82,11 @@ body
   height:2em;
   text-transform: uppercase;
   border: 1px black solid;
+  
+  -o-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 #clear-log
