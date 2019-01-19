@@ -1,0 +1,143 @@
+<title>\m/ GoreGrind group name generator \m/</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    color: red;
+  }
+  body {
+    background: black;
+    padding: 2px;
+  }
+  #content {
+    text-align: center;
+    line-height: 200px;
+  }
+  #groupName {
+    color: red;
+    font-size: 36pt;
+  }
+  #generateButton {
+    height: 36pt;
+    font-size: 24pt;
+    padding: 5px;
+  }
+</style>
+<body>
+  <div id=_1stWord style="display: none">
+  Abysmal 
+  Hateful
+  Gore
+  Bloody
+  Vomit
+  Anal
+  Fecal
+  Dying
+  Cryptic
+  Iced
+  Lost
+  Urethral
+  Witchery 
+  Wretched
+  Satanic
+  Rectal
+  Eaten
+  Butchered  
+  Mutated
+  Obsessed
+  Shredded
+  Killed
+  Acidic
+  Undead
+  Buried
+  Burned
+  Rotted
+  Scattered
+  Splattered
+  Gutted
+  Smashed
+  Vaginal
+  Necrophiliac
+  Zoophiliac
+  Hemophiliac
+  Stench
+  Ripped
+  Raped
+  Pulverized
+  Devoured
+  Disfigured
+  Drenched  
+  Despised
+  Sickened
+  </div>
+
+  <div id=_2ndWord style="display: none">
+  Torment
+  Torture
+  Blood
+  Cunt
+  Anal
+  Zombie
+  Blasphemy
+  Ethental
+  Worm
+  Flame
+  Soul
+  Pain
+  Pathology
+  Cult
+  Defecation
+  Witch
+  Spawn
+  Satan
+  Cannibal
+  Birth
+  Suicide
+  Human
+  Body
+  Bone
+  Scull
+  Autopsy
+  Maggot
+  Remains
+  Brains
+  Sodomy
+  Meat
+  Amputation
+  Necrophile
+  Necropedophile
+  Ejaculation
+  Homicide
+  Vermin
+  Suffering
+  Massacre
+  Orgasm
+  Execution
+  Throat
+  Ecstacy
+  Beast
+  Decapitation
+  Slaughter
+  Agony
+  
+  </div>
+
+  <div id=content>
+    <span type=text id=groupName></span>
+    <br />
+    <button id=generateButton>Generate!</button>
+  </div>
+  <div id=footer>Inspired by years of headbanging</div>  
+  
+  <script type="text/javascript">
+    var parseList = function(text) {
+      return text.trim().split("\n").map(function(line) { return line.trim() })
+    }
+    var sample = function(vs) {
+      return vs[0 | Math.random() * vs.length]
+    }
+    ;(generateButton.onclick = function() {
+      groupName.innerHTML = "".concat("\\m/ ", sample(parseList(_1stWord.innerHTML)), " ", sample(parseList(_2ndWord.innerHTML)), " \\m/") 
+    })()
+  </script>
+</body>  
