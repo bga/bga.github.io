@@ -1,30 +1,36 @@
-<title>\m/ GoreGrind group name generator \m/</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    color: red;
-  }
-  body {
-    background: black;
-    padding: 2px;
-  }
-  #content {
-    text-align: center;
-    line-height: 200px;
-  }
-  #groupName {
-    color: red;
-    font-size: 36pt;
-  }
-  #generateButton {
-    height: 36pt;
-    font-size: 24pt;
-    padding: 5px;
-  }
-</style>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+  <title>\m/ GoreGrind group name generator \m/</title>
+  <meta name="description" content="death gore grind name generator for metal groups">
+  <meta name="keywords" content="death, gore, goregrind, metal, group, group name, album, album name, track, track name, generator">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      color: red;
+    }
+    body {
+      background: black;
+      padding: 2px;
+    }
+    #content {
+      text-align: center;
+      line-height: 200px;
+    }
+    #groupName {
+      color: red;
+      font-size: 36pt;
+    }
+    #generateButton {
+      height: 36pt;
+      font-size: 24pt;
+      padding: 5px;
+    }
+  </style>
+</head>
 <body>
   <div id=_1stWord style="display: none">
+  Unholy
   Abysmal 
   Hateful
   Gore
@@ -69,6 +75,9 @@
   Drenched  
   Despised
   Sickened
+  Rabid
+  Barbaric
+  Sadistic
   </div>
 
   <div id=_2ndWord style="display: none">
@@ -119,13 +128,18 @@
   Decapitation
   Slaughter
   Agony
-  
+  Aggression
+  Plague
+  Worship
+  Terror
+  Lobotomy
+  Slasher
   </div>
 
   <div id=content>
     <span type=text id=groupName></span>
     <br />
-    <button id=generateButton>Generate!</button>
+    <input type=button id=generateButton value="Generate!">
   </div>
   <div id=footer>Inspired by years of headbanging</div>  
   
@@ -136,8 +150,23 @@
     var sample = function(vs) {
       return vs[0 | Math.random() * vs.length]
     }
+    var randomPrefix = function(probability, prefix, word) {
+      console.log(word)
+      if(word.slice(0, prefix.length).toLowerCase() != prefix.toLowerCase() && Math.random() < probability) {
+        return "".concat(prefix, word.toLowerCase())
+      }
+      else {
+        return word
+      }
+    }
     ;(generateButton.onclick = function() {
-      groupName.innerHTML = "".concat("\\m/ ", sample(parseList(_1stWord.innerHTML)), " ", sample(parseList(_2ndWord.innerHTML)), " \\m/") 
+      groupName.innerHTML = "".concat(
+        "\\m/ ", 
+        sample(parseList(_1stWord.innerHTML)), 
+        " ", 
+        randomPrefix(0.2, "Necro", sample(parseList(_2ndWord.innerHTML))), 
+        " \\m/"
+      ) 
     })()
   </script>
 </body>  
