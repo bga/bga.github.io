@@ -1,0 +1,24 @@
+/* < I:\WebSite\bga.github.com\jsoptable\list.toupl.html > */
+/* <toupl> */
+
+function _renderTable1D(values,_func)
+{ 
+  var touplWorkVar="",i,j;
+touplWorkVar += "\r\n<table>\r\n  <tr class=\"name-top\">\r\n    <td class=\"corner\">\r\n      a\r\n    </td>\r\n    ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    <td class=\"name-top\">\r\n      ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n  <tr>\r\n    <td class=\"name-left\">\r\n    </td>  \r\n    ";
+ for(i=0;i<values.length;++i) { touplWorkVar += "\r\n    ";
+ var v = _func(values[i]); touplWorkVar += "\r\n    <td class=\"";
+touplWorkVar +=  typeof(v) ;
+touplWorkVar += "\">\r\n      ";
+ if(typeof(v) == "string") { v = "'" + v + "'" } touplWorkVar += "\r\n      ";
+touplWorkVar +=  v ;
+touplWorkVar += "\r\n    </td>\r\n    ";
+ } touplWorkVar += "\r\n  </tr>\r\n</table>\r\n";
+
+  return touplWorkVar;
+};  
+/* </toupl> */
+/* </ I:\WebSite\bga.github.com\jsoptable\list.toupl.html > */

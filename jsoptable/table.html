@@ -1,0 +1,31 @@
+/* < I:\WebSite\bga.github.com\jsoptable\table.toupl.html > */
+
+/* <toupl> */
+
+function _renderTable(values,_func)
+{ 
+  var touplWorkVar="",i,j;
+touplWorkVar += " <table onmouseover=\"return _hlTableRowColomn.call(this,event);\"> <col> </col> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <col> </col> ";
+ } touplWorkVar += " <tr class=\"name-top\"> <td class=\"corner\"> <span class=\"b\">b</span>\\<span class=\"a\">a</span> </td> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <td class=\"name-top\"> ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += " </td> ";
+ } touplWorkVar += " </tr> ";
+ for(i=0;i<values.length;++i) { touplWorkVar += " <tr> <td class=\"name-left\"> ";
+touplWorkVar +=  values[i] ;
+touplWorkVar += " </td> ";
+ for(j=0;j<values.length;++j) { touplWorkVar += " ";
+ var v = _func(values[j],values[i]); touplWorkVar += " <td class=\"";
+touplWorkVar +=  typeof(v) ;
+touplWorkVar += "\"> ";
+ if(typeof(v) == "string") { v = "'" + v + "'" } touplWorkVar += " ";
+touplWorkVar +=  v ;
+touplWorkVar += " </td> ";
+ } touplWorkVar += " </tr> ";
+ } touplWorkVar += " </table> ";
+
+  return touplWorkVar;
+};  
+/* </toupl> */
+/* </ I:\WebSite\bga.github.com\jsoptable\table.toupl.html > */
