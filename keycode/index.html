@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>keycode scaner</title>
+
+  <meta name="keywords" content="jbasis, keycode ,javascript, tool, tools">
+  <meta name="description" content="jbasis keycode scaner">
+
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+
+  <script type="text/javascript">
+
+  window.$G=window;
+  
+  $G._out = function(e)
+  {
+    document.getElementById('key').innerHTML = ''.concat(
+      'keyCode ', e.keyCode, '<br>',
+      'which ', e.which, '<br>',
+      'shiftKey  ', e.shiftKey, '<br>',
+      'shiftLeft ', e.shiftLeft, '<br>',
+      'altKey ', e.altKey, '<br>',
+      'altLeft ', e.altLeft, '<br>',
+      'ctrlKey ', e.ctrlKey, '<br>',
+      'ctrlLeft ', e.ctrlLeft, '<br>',
+      'keyIdentifier ', e.keyIdentifier, '<br>',
+      'keyLocation ', e. keyLocation, '<br>',
+      ''
+    );
+  };
+  $G._keyUped = function(e)
+  {
+    if(e == null)
+      e = window.event;
+    
+    $G._out(e);
+    
+    if(e.preventDefault)
+      e.preventDefault();
+    else
+      e.returnValue = false;
+    return false;
+  };
+  
+  $G._main=function()
+  {
+    document.onkeyup = document.onkeydown = _keyUped;
+    
+    return true;
+  };
+
+  </script>
+
+</head>
+
+<body onload="return $G._main();">
+<span id="key"></span>
+</body>
+</html>

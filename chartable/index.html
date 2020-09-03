@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>char code table</title>
+
+  <meta name="keywords" content="char code table">
+  <meta name="description" content="char code table">
+
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <style type="text/css">
+  /* * {margin:0; padding:0;} */
+  body
+  {
+    padding:2em;
+  }
+  table
+  {
+    font-size:8pt;
+    border-collapse:collapse;
+    border:1px black solid;
+    table-layout:fixed;
+    text-align:center;
+  }
+  td
+  {
+    width:2em;
+    /* min-width:2em; */
+    height:2em;
+    border:1px black solid;
+  }
+  /*
+  b
+  {  
+    display:block;
+    position:relative;
+    font-weight:normal;
+    padding:0.1em;
+  }
+  #show
+  {
+    position:absolute;
+    left:-1.1em;
+    top:-1.1em;
+    width:4em;
+    height:4em;
+    border:1px black solid;
+    background:#aaa;
+    z-index:2;
+    padding:0.1em;
+  }
+  #showNum
+  {
+    font-size:8pt;
+    padding:0;
+  }
+
+  #showChar
+  {
+    font-size:12pt;
+    display:block;
+  }
+  */
+  </style>
+  <script type="text/javascript">
+  var show,showNum,showChar,lastTD=null,lastShowTime=0;
+  
+  var _dom=function(id)
+  {
+    return document.getElementById(id);
+  };
+
+  var _tdMouseOver=function(e)
+  {
+    
+    if(((new Date())-lastShowTime)<33)
+      return;
+      
+    lastShowTime=+(new Date());
+    
+    if(e==null)
+      e=window.event;
+      
+    //console.log("11");
+    var v=e.target;
+    
+    while(v && v.nodeName!="TD")
+      v=v.parentNode;
+      
+    if(v==null)
+      return;
+      
+    if(lastTD==v)
+      return;
+      
+    lastTD=v;  
+    // B
+    v=v.firstChild;
+    
+    var c=v.firstChild.data;
+    var code=c.charCodeAt(0);
+    
+    //console.log(c);
+    showChar.firstChild.data=c;
+    //_setText(showChar,c);
+    showNum.firstChild.data=code.toString(16);
+    //_setText(showNum,code.toString(16));
+    v.appendChild(show);
+  };
+  
+  var _main=function()
+  {
+    show=_dom("show");
+    showNum=_dom("showNum");
+    showChar=_dom("showChar");
+    
+    //_dom("charTableWidth").value=
+    //_dom("charTableHeight").value=
+    //"0x10";
+    
+    _dom("firstCharCode").value=0;
+    
+    _drawCharTable(0x10,0x10,0);
+    
+    //_dom("charTable").onmouseover=_tdMouseOver;
+  };
+  _drawCharTable=function(w,h,n)
+  {
+    var t='<table>';
+    var i,j;
+    
+    if(n==null)
+      n=0;
+      
+    for(j=0;j<w;++j)
+      t+='<col>';
+      
+    for(i=0;i<h;++i)
+    {
+      t+="<tr>";
+      
+      for(j=0;j<w;++j,++n)
+        t+="<td>&#"+n+";";
+      
+      t+="</tr>";
+    }
+    
+    lastTD=null;
+    _dom("charTable").innerHTML=t;
+  };
+  </script>    
+</head>
+<body onload="return _main();">
+Width:<input id="charTableWidth" value="0x10">
+Height:<input id="charTableHeight" value="0x10">
+First char code:<input id="firstCharCode" value="0">
+<button onclick="_drawCharTable(+_dom('charTableWidth').value,+_dom('charTableHeight').value,+_dom('firstCharCode').value);">Update</button>
+<br>
+<br>
+<div id="charTable"></div>
+<div id="show">
+  <span id="showChar">rr</span>
+  <span id="showNum">rr</span>
+</div>  
+</body>
+</html>
