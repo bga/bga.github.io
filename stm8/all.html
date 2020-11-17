@@ -1,0 +1,525 @@
+<head>
+	<title>STM8S/STM8L mcus selection</title>
+</head>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	td {
+		text-align: center;
+		padding: 2px;
+	}
+</style>
+
+<h1>SO8/SOIC8</h1>
+<p><em>STM8S0xx Value Line</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th style="width: 124px;">Part No.</th>
+<th style="width: 83px;">Package</th>
+<th style="width: 37px;">F, MHz</th>
+<th style="width: 59px;">Flash, kB</th>
+<th style="width: 56px;">SRAM, kB</th>
+<th style="width: 74px;">EEPROM, bytes</th>
+<th style="width: 74px;">16 bit timer</th>
+<th style="width: 58px;">ADC 10 bit</th>
+<th style="width: 32px;">I/O</th>
+<th style="width: 30px;">I²C</th>
+<th style="width: 30px;">SPI</th>
+<th style="width: 44px;">UART</th>
+<th style="width: 48px;">VCC</th>
+<th style="width: 48px;">t, °C</th>
+</tr>
+<tr>
+<td>STM8S001J3</td>
+<td>SO-8</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>128</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><em>ultra low power STM8L0</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th>Part No.</th>
+<th>Package</th>
+<th>F, MHz</th>
+<th>Flash, kB</th>
+<th>SRAM, kB</th>
+<th>EEPROM, bytes</th>
+<th>16 bit timer</th>
+<th>ADC 12bit</th>
+<th>Analog comparators</th>
+<th>I/O</th>
+<th>I²C</th>
+<th>SPI</th>
+<th>USART</th>
+<th>VCC</th>
+<th>LCD</th>
+<th>t, °C</th>
+</tr>
+<tr>
+<td>STM8L001J3</td>
+<td>SO-8</td>
+<td>16</td>
+<td>8</td>
+<td>1.5</td>
+<td>2048</td>
+<td>2</td>
+<td>–</td>
+<td>2</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,8…3,6</td>
+<td>–</td>
+<td>-40…125</td>
+</tr>
+<tr>
+<td>STM8L050J3</td>
+<td>SO-8</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>256</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,8…3,6</td>
+<td>–</td>
+<td>-40…125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Alalysis</h2>
+<ul>
+	<li>STM8S001J3 - generic mcu. VCap pin reduces usable pins down to 5. Or 4 if you leave SWD. No MISO.
+	<li>STM8L001J3 - same as STM8S001J. Same cost. But huge EEPROM. No ADC but there are analog comparators. No stupid Vcap pin. Much better.
+	<li>STM8L050J3  - combines pros of prev ones for 150% price. 12 bit ADC instead 10 bit. Also DMA.
+</ul>
+
+
+<h1>TSSOP20</h1>
+<p><em>STM8S0xx Value Line</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th style="width: 124px;">Part No.</th>
+<th style="width: 83px;">Package</th>
+<th style="width: 37px;">F, MHz</th>
+<th style="width: 59px;">Flash, kB</th>
+<th style="width: 56px;">SRAM, kB</th>
+<th style="width: 74px;">EEPROM, bytes</th>
+<th style="width: 74px;">16 bit timer</th>
+<th style="width: 58px;">ADC 10 bit</th>
+<th style="width: 32px;">I/O</th>
+<th style="width: 30px;">I²C</th>
+<th style="width: 30px;">SPI</th>
+<th style="width: 44px;">UART</th>
+<th style="width: 48px;">VCC</th>
+<th style="width: 48px;">t, °C</th>
+</tr>
+<tr>
+<td>STM8S003F3</td>
+<td>TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>128</td>
+<td>2</td>
+<td>5</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…85</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<p><em>STM8S103/105 Value Line</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr style="height: 15px;">
+<th style="height: 15px;">Part No.</th>
+<th style="height: 15px;">Package</th>
+<th style="height: 15px;">F, MHz</th>
+<th style="height: 15px;">Flash, kB</th>
+<th style="height: 15px;">SRAM, kB</th>
+<th style="height: 15px;">EEPROM, bytes</th>
+<th style="height: 15px;">16 bit timer</th>
+<th style="height: 15px;">ADC 10 bit</th>
+<th style="height: 15px;">I/O</th>
+<th style="height: 15px;">I²C</th>
+<th style="height: 15px;">SPI</th>
+<th style="height: 15px;">UART</th>
+<th style="height: 15px;">VCC</th>
+<th style="height: 15px;">t, °C</th>
+</tr>
+<tr style="height: 15px;">
+<td>STM8S103F2</td>
+<td>SO-20, TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>4</td>
+<td>1</td>
+<td>640</td>
+<td>2</td>
+<td>5</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…85/125</td>
+</tr>
+<tr style="height: 15px;">
+<td>STM8S103F3</td>
+<td>SO-20, TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>640</td>
+<td>2</td>
+<td>5</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<p><em>STM8S9хх - STM103/105 but with internal Vref ADC pin</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th style="width: 124px;">Part No.</th>
+<th style="width: 76px;">Package</th>
+<th style="width: 37px;">F, MHz</th>
+<th style="width: 59px;">Flash, kB</th>
+<th style="width: 56px;">SRAM, kB</th>
+<th style="width: 76px;">EEPROM, bytes</th>
+<th style="width: 81px;">16 bit timer</th>
+<th style="width: 43px;">ADC 10 bit</th>
+<th style="width: 40px;">I/O</th>
+<th style="width: 30px;">I²C</th>
+<th style="width: 30px;">SPI</th>
+<th style="width: 44px;">UART</th>
+<th style="width: 48px;">VCC</th>
+<th style="width: 54px;">t, °C</th>
+</tr>
+<tr>
+<td>STM8S903F3</td>
+<td>SO-20, TSSOP 20,<br>UFQFPN 20</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>640</td>
+<td>2</td>
+<td>5</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…3,6</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<p><em>ultra low power STM8L101</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr style="height: 51px;">
+<th style="height: 51px; width: 124px;">Part No.</th>
+<th style="height: 51px; width: 73px;">Package</th>
+<th style="height: 51px; width: 37px;">F, MHz</th>
+<th style="height: 51px; width: 56px;">Flash, kB</th>
+<th style="height: 51px; width: 53px;">SRAM, kB</th>
+<th style="height: 51px; width: 76px;">EEPROM, bytes</th>
+<th style="height: 51px; width: 67px;">16 bit timer</th>
+<th style="height: 51px; width: 63px;">Analog comparators</th>
+<th style="height: 51px; width: 32px;">I/O</th>
+<th style="height: 51px; width: 30px;">I²C</th>
+<th style="height: 51px; width: 30px;">SPI</th>
+<th style="height: 51px; width: 54px;">USART</th>
+<th style="height: 51px; width: 48px;">VCC</th>
+<th style="height: 51px; width: 54px;">t, °C</th>
+</tr>
+<tr style="height: 15px;">
+<td>STM8L101F2</td>
+<td>TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>4</td>
+<td>1.5</td>
+<td>–</td>
+<td>2</td>
+<td>2</td>
+<td>18</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,65…3,6</td>
+<td>-40…85/125</td>
+</tr>
+<tr style="height: 15px;">
+<td>STM8L101F3</td>
+<td>TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>8</td>
+<td>1.5</td>
+<td>–</td>
+<td>2</td>
+<td>2</td>
+<td>18</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,65…3,6</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><em>ultra low power STM8L0</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th>Part No.</th>
+<th>Package</th>
+<th>F, MHz</th>
+<th>Flash, kB</th>
+<th>SRAM, kB</th>
+<th>EEPROM, bytes</th>
+<th>16 bit timer</th>
+<th>ADC 12bit</th>
+<th>Analog comparators</th>
+<th>I/O</th>
+<th>I²C</th>
+<th>SPI</th>
+<th>USART</th>
+<th>VCC</th>
+<th>LCD</th>
+<th>t, °C</th>
+</tr>
+<tr>
+<td>STM8L051F3</td>
+<td>TSSOP 20</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>256</td>
+<td>2</td>
+<td>10</td>
+<td>–</td>
+<td>18</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,8…3,6</td>
+<td>–</td>
+<td>-40…85</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><em>ultra low power performance-line STM8L151/152</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr style="height: 69px;">
+<th style="width: 124px; height: 69px;">Part No.</th>
+<th style="width: 144px; height: 69px;">Package</th>
+<th style="width: 48px; height: 69px;">F, MHz</th>
+<th style="width: 88px; height: 69px;">Flash, kB</th>
+<th style="width: 79px; height: 69px;">SRAM, kB</th>
+<th style="width: 100px; height: 69px;">EEPROM, bytes</th>
+<th style="width: 89px; height: 69px;">16 bit timer</th>
+<th style="width: 82px; height: 69px;">ADC 12bit</th>
+<th style="width: 82px; height: 69px;">DAC 12 bit</th>
+<th style="width: 51px; height: 69px;">Analog comparators</th>
+<th style="width: 32px; height: 69px;">I/O</th>
+<th style="width: 30px; height: 69px;">I²C</th>
+<th style="width: 30px; height: 69px;">SPI</th>
+<th style="width: 54px; height: 69px;">USART</th>
+<th style="width: 110px; height: 69px;">VCC</th>
+<th style="width: 10px; height: 69px;">LCD</th>
+<th style="width: 126px; height: 69px;">t, °C</th>
+</tr>
+<tr style="height: 69px;">
+<td>STM8L151F3</td>
+<td>TSSOP 20, UFQFPN 20</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>256</td>
+<td>2</td>
+<td>10</td>
+<td>–</td>
+<td>2</td>
+<td>18</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1,65…3,6</td>
+<td>–</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Analysis</h2>
+<ul>
+	<li>STM8S003F3 - most basic and cheapest one. Only 128 bytes EEPROM. 100 flash rewrites. For final mass production.
+	<li>STM8S103F3 - Same as STM8S003F3 but more EEPROM. And 10k flash rewrites. For debuging.
+	<li>STM8L101F2/STM8L101F3 - Just better than STM8S103F3 for same price. ADC is replaced to analog comparators. Not pin compatible to STM8S003F3/STM8S103F3
+	<li>STM8L051F3 - Same as STM8L051J3 but more pins. 12 bit ADC, DMA. Awesome.
+	<li>STM8L151F3 - Full flesh ... for 8kb flash. 12 bit ADC, RTC, analog comparators, DMA, internal Vref ADC & temp sensor, encoder api.
+</ul>
+<p>
+So we have 2 classes. 2 STM8S ready for drop in replacement. And 4 pin compatible STM8L.<br>
+STM8L - SWIM at pin 3, STM8S - SWIM at pin 18. Rest VCC, GND, NRST at same pins.
+</p>
+
+<h1>PDIP32</h1>
+<p><em>STM8S103/105 Value Line</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr style="height: 15px;">
+<th style="height: 15px;">Part No.</th>
+<th style="height: 15px;">Package</th>
+<th style="height: 15px;">F, MHz</th>
+<th style="height: 15px;">Flash, kB</th>
+<th style="height: 15px;">SRAM, kB</th>
+<th style="height: 15px;">EEPROM, bytes</th>
+<th style="height: 15px;">16 bit timer</th>
+<th style="height: 15px;">ADC 10 bit</th>
+<th style="height: 15px;">I/O</th>
+<th style="height: 15px;">I²C</th>
+<th style="height: 15px;">SPI</th>
+<th style="height: 15px;">UART</th>
+<th style="height: 15px;">VCC</th>
+<th style="height: 15px;">t, °C</th>
+</tr>
+</tr>
+<tr style="height: 15px;">
+<td>STM8S105K4</td>
+<td>LQFP 32, PDIP 32, UFQFPN 32</td>
+<td>16</td>
+<td>16</td>
+<td>2</td>
+<td>1024</td>
+<td>3</td>
+<td>7</td>
+<td>25</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…85/125</td>
+</tr>
+<tr style="height: 15px;">
+<td>STM8S105K6</td>
+<td>LQFP 32, PDIP 32, UFQFPN 32</td>
+<td>16</td>
+<td>32</td>
+<td>2</td>
+<td>1024</td>
+<td>3</td>
+<td>7</td>
+<td>25</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…5,5</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><em>STM8S9хх - STM103/105 but with interal Vref ADC pin</em></p>
+<div>
+<table class="browser-default" style="width: 800px;" border="1" cellspacing="1">
+<tbody>
+<tr>
+<th style="width: 124px;">Part No.</th>
+<th style="width: 76px;">Package</th>
+<th style="width: 37px;">F, MHz</th>
+<th style="width: 59px;">Flash, kB</th>
+<th style="width: 56px;">SRAM, kB</th>
+<th style="width: 76px;">EEPROM, bytes</th>
+<th style="width: 81px;">16 bit timer</th>
+<th style="width: 43px;">ADC 10 bit</th>
+<th style="width: 40px;">I/O</th>
+<th style="width: 30px;">I²C</th>
+<th style="width: 30px;">SPI</th>
+<th style="width: 44px;">UART</th>
+<th style="width: 48px;">VCC</th>
+<th style="width: 54px;">t, °C</th>
+</tr>
+<tr>
+<td>STM8S903K3</td>
+<td>LQFP 32, PDIP 32,<br>UFQFPN 32</td>
+<td>16</td>
+<td>8</td>
+<td>1</td>
+<td>640</td>
+<td>2</td>
+<td>7</td>
+<td>28</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2,95…3,6</td>
+<td>-40…85/125</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Analysis</h2>
+<p>Yeah! DIP is alive! But dont expect it will be cheap.<br>
+Get STM8S105K6 for breadboard prototyping. And STM8S903K3 if you need internal Vref pin for ADC.<br>
+</p>
